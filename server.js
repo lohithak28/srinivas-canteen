@@ -1291,8 +1291,8 @@ app.post('/set-today-special-status', authenticateToken, (req, res) => { // Adde
 // Start the server, listening on the specified IP address
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
-        server.listen(process.env.PORT || 5000, '192.168.29.90', () => {
-            console.log(`🚀 Server running on http://192.168.29.90:${process.env.PORT || 5000}`);
-        });
+        server.listen(process.env.PORT || 5000, () => { // Removed '192.168.29.90'
+    console.log(`🚀 Server running on port ${process.env.PORT || 5000}`); // Updated console log
+});
     })
     .catch(err => console.error("❌ MongoDB connection error:", err));
